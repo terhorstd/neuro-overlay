@@ -21,6 +21,12 @@ music? ( sci-libs/music )"
 
 RDEPEND="${DEPEND}"
 
+inherit eutils
+
+src_prepare() {
+epatch "${FILESDIR}/${P}-relative_import.patch"
+}
+
 src_configure() {
 econf \
     $(use_enable static) \
