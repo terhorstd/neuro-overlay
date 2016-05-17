@@ -1,13 +1,13 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
 DESCRIPTION="test ebuild for my own overlay"
 HOMEPAGE="http://lctags.sourceforge.net"
-#SRC_URI="mirror://sourceforge/ctags/${P}.tar.gz"
-SRC_URI="/home/dennis/sdvlp/portage/${P}.tar.gz"
+#SRC_URI="/home/dennis/sdvlp/portage/${P}.tar.gz"
+SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"

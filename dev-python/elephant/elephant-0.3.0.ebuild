@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -19,7 +19,7 @@ IUSE="pandas asset doc test"
 
 # these dependencies are lowered to make the software available to older systems
 # lets see how that works out...
-DEPEND=">=dev-lang/python-2.7
+DEPEND=">=dev-lang/python-2.7:*
 >=dev-python/numpy-1.8.1
 >=sci-libs/scipy-0.13.3
 dev-python/pip

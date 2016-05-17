@@ -6,4 +6,4 @@
 #layout:
 #arch           profile_directory                               status
 
-x86             default/linux/x86/1.0                           stable
+x86             default/linux/x86/13.0                          stable

@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -11,13 +11,13 @@ SRC_URI="https://github.com/nest/nest-simulator/releases/download/v2.10.0/nest-2
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~x86"
-IUSE="mpi scali python static music openmp readline"
+IUSE="mpi scali python gsl static music openmp readline"
 # music use flag requires mpi
 DEPEND="mpi? ( sys-cluster/openmpi )
-readline? ( sys-libs/readline )
-music? ( sci-libs/music )"
-#  python? ( dev-lang/python )
-#  gsl? ( sci-libs/gsl )
+readline? ( sys-libs/readline:* )
+music? ( sci-libs/music )
+gsl? ( sci-libs/gsl )
+python? ( >=dev-lang/python-2.7:* )"
 
 RDEPEND="${DEPEND}"
 

@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="hdf"
 
-DEPEND=">=dev-lang/python-2.6
+DEPEND=">=dev-lang/python-2.6:*
 >=dev-python/numpy-1.3.0
 >=sci-libs/quantities-0.9.0
 >=sci-libs/scipy-0.8

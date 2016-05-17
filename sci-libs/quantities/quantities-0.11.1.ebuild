@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
@@ -15,5 +15,5 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="test"
 
-DEPEND=">=dev-lang/python-2.7 >=dev-python/numpy-1.4 test? ( dev-python/unittest2 ) "
-RDEPEND=">=dev-lang/python-2.7 >=dev-python/numpy-1.4"
+DEPEND=">=dev-lang/python-2.7:* >=dev-python/numpy-1.4 test? ( dev-python/unittest2 ) "
+RDEPEND=">=dev-lang/python-2.7:* >=dev-python/numpy-1.4"
