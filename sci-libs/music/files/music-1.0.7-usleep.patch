@@ -1,0 +1,10 @@
+--- utils/VisualiseNeurons.cpp.orig	2016-05-02 20:42:54.000000000 +0200
++++ utils/VisualiseNeurons.cpp	2016-05-02 20:43:38.000000000 +0200
+@@ -20,6 +20,7 @@
+ 
+ 
+ #include "VisualiseNeurons.h"
++#include <unistd.h>
+ 
+ void VisualiseNeurons::printHelp() {
+   std::cerr << "Usage: viewevents [OPTION...] CONFIGFILE" << std::endl

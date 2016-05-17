@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!--herd>sci</herd>
+  <herd>python</herd-->
+  <longdescription lang="en">
+  Quantities is designed to handle arithmetic and conversions of physical
+  quantities, which have a magnitude, dimensionality specified by various
+  units, and possibly an uncertainty. Quantities builds on the popular numpy
+  library and is designed to work with numpy’s standard ufuncs, many of which
+  are already supported.
+</longdescription>
+  <upstream>
+    <remote-id type="pypi">quantities</remote-id>
+  </upstream>
+</pkgmetadata>

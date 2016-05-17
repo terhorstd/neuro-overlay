@@ -1,0 +1,11 @@
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+# Keep them sorted
+
+music - Enable support for runtime data exchange of large scale neuronal network simulators
+scali - Enable support for Scali MPI
+pandas --Enable ...
+asset - Enable ...
+hdf - Enable support for files in the Hierarchical Data Format

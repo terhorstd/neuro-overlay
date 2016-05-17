@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<longdescription lang="en">
+C++ library implementing an API which allows large scale neuronal network
+simulators to exchange data during runtime.
+
+MUSIC allows spike events and continuous time series to be communicated between
+applications in a cluster computer. The typical usage cases are connecting
+models developed for different simulators and connecting a parallel simulator
+to a post-processing tool.
+</longdescription>
+</pkgmetadata>
