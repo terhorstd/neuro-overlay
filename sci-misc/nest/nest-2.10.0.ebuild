@@ -10,7 +10,7 @@ SRC_URI="https://github.com/nest/nest-simulator/releases/download/v2.10.0/nest-2
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="x86"
 IUSE="mpi scali python gsl static music openmp readline"
 # music use flag requires mpi
 DEPEND="mpi? ( sys-cluster/openmpi )
