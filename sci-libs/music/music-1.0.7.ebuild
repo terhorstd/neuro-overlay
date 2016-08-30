@@ -11,9 +11,9 @@ SRC_URI="http://software.incf.org/software/music/music/music_1.0.7.orig.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
-IUSE=""
+IUSE="ownmpi"
 
-DEPEND="sys-cluster/openmpi"
+DEPEND=" !ownmpi? ( sys-cluster/openmpi )"
 RDEPEND="${DEPEND}"
 
 inherit eutils

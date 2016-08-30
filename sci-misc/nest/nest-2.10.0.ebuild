@@ -11,10 +11,14 @@ SRC_URI="https://github.com/nest/nest-simulator/releases/download/v2.10.0/nest-2
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="x86"
-IUSE="mpi scali python gsl static music openmp readline"
+IUSE="mpi ownmpi scali python gsl static music openmp readline"
 # music use flag requires mpi
-DEPEND="mpi? ( sys-cluster/openmpi )
+# requires libncurses || libcurses || libtermcap)
+DEPEND=">=sys-libs/ncurses-4
 readline? ( sys-libs/readline:* )
+mpi? (
+   !ownmpi? ( sys-cluster/openmpi )
+)
 music? ( sci-libs/music )
 gsl? ( sci-libs/gsl )
 python? ( >=dev-lang/python-2.7:* )"
@@ -42,4 +46,12 @@ src_install() {
 emake DESTDIR="${D}" install
 dodoc NEWS README.md
 #dohtml EXTENDING.html ctags.html
+if use ownmpi; then
+cat <<EOT
+ *
+ * The 'ownmpi' use-flag is set! Remember that you need to load exactly the
+ * same modules at runtime that you have also loaded now!
+ *
+EOT
+fi
 }
