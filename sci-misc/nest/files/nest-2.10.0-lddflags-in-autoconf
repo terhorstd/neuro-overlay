@@ -1,0 +1,28 @@
+--- aclocal.m4.orig	2016-08-30 18:20:02.369590974 +0200
++++ aclocal.m4	2016-08-30 18:22:58.854131808 +0200
+@@ -6838,14 +6838,14 @@
+ 	    _LT_TAGVAR(archive_cmds, $1)='$CC -shared $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
+ 
+ 	    # The C++ compiler must be used to create the archive.
+-	    _LT_TAGVAR(old_archive_cmds, $1)='$CC $LDFLAGS -archive -o $oldlib $oldobjs'
++	    _LT_TAGVAR(old_archive_cmds, $1)='$CC $LDFLAGS $LDDFLAGS -archive -o $oldlib $oldobjs'
+ 	    ;;
+           *)
+ 	    # GNU C++ compiler with Solaris linker
+ 	    if test "$GXX" = yes && test "$with_gnu_ld" = no; then
+ 	      _LT_TAGVAR(no_undefined_flag, $1)=' ${wl}-z ${wl}defs'
+ 	      if $CC --version | $GREP -v '^2\.7' > /dev/null; then
+-	        _LT_TAGVAR(archive_cmds, $1)='$CC -shared $pic_flag -nostdlib $LDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
++	        _LT_TAGVAR(archive_cmds, $1)='$CC -shared $pic_flag -nostdlib $LDFLAGS $LDDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
+ 	        _LT_TAGVAR(archive_expsym_cmds, $1)='echo "{ global:" > $lib.exp~cat $export_symbols | $SED -e "s/\(.*\)/\1;/" >> $lib.exp~echo "local: *; };" >> $lib.exp~
+ 		  $CC -shared $pic_flag -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
+ 
+@@ -6856,7 +6856,7 @@
+ 	      else
+ 	        # g++ 2.7 appears to require `-G' NOT `-shared' on this
+ 	        # platform.
+-	        _LT_TAGVAR(archive_cmds, $1)='$CC -G -nostdlib $LDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
++	        _LT_TAGVAR(archive_cmds, $1)='$CC -G -nostdlib $LDFLAGS $LDDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags ${wl}-h $wl$soname -o $lib'
+ 	        _LT_TAGVAR(archive_expsym_cmds, $1)='echo "{ global:" > $lib.exp~cat $export_symbols | $SED -e "s/\(.*\)/\1;/" >> $lib.exp~echo "local: *; };" >> $lib.exp~
+ 		  $CC -G -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
+ 
