@@ -26,3 +26,15 @@
  	        _LT_TAGVAR(archive_expsym_cmds, $1)='echo "{ global:" > $lib.exp~cat $export_symbols | $SED -e "s/\(.*\)/\1;/" >> $lib.exp~echo "local: *; };" >> $lib.exp~
  		  $CC -G -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $compiler_flags~$RM $lib.exp'
  
+--- configure.ac.orig	2016-09-01 16:55:41.750145372 +0200
++++ configure.ac	2016-09-01 16:55:56.247027227 +0200
+@@ -623,7 +623,7 @@
+ 
+ AC_PATH_PROGS([MAKE],[gmake make],[make])
+ 
+-SLI_LIBS="$SLI_LIBS $LDFLAGS"
++SLI_LIBS="$SLI_LIBS $LDDFLAGS"
+ 
+ # Check for readline if not configuring for Blue Gene
+ if test "x$configure_bluegene" = "xno" ; then
+

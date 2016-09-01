@@ -28,31 +28,35 @@ RDEPEND="${DEPEND}"
 inherit eutils
 
 src_prepare() {
-epatch "${FILESDIR}/${P}-lddflags-in-autoconf"
-epatch "${FILESDIR}/${P}-relative_import.patch"
+	epatch "${FILESDIR}/${P}-lddflags-in-autoconf"
+	epatch "${FILESDIR}/${P}-relative_import.patch"
 }
 
 src_configure() {
-econf \
-    $(use_enable static) \
-    $(use_with music) \
-    $(use_with mpi) \
-    $(use_with readline) \
-    $(use_with openmp) \
-    $(use_with python)
-#    $(use_enable scali) \
+	#if use mpi; then
+	#	export CXX=mpicxx
+#		export CC=mpicc
+	#fi
+	econf \
+	    $(use_enable static) \
+	    $(use_with music) \
+	    $(use_with mpi mpi $MPI_ROOT) \
+	    $(use_with readline) \
+	    $(use_with openmp) \
+	    $(use_with python)
+	#    $(use_enable scali) \
 }
 
 src_install() {
-emake DESTDIR="${D}" install
-dodoc NEWS README.md
-#dohtml EXTENDING.html ctags.html
-if use ownmpi; then
-cat <<EOT
+	emake DESTDIR="${D}" install
+	dodoc NEWS README.md
+	#dohtml EXTENDING.html ctags.html
+	if use ownmpi; then
+	cat <<EOT
  *
  * The 'ownmpi' use-flag is set! Remember that you need to load exactly the
  * same modules at runtime that you have also loaded now!
  *
 EOT
-fi
+	fi
 }
