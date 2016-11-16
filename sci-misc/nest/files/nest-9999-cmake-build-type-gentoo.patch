@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2016-09-11 16:01:16.125435000 +0200
++++ CMakeLists.txt	2016-09-11 16:01:44.127834156 +0200
+@@ -237,7 +237,7 @@
+ # used in nest-config
+ 
+ # all compiler flags
+-if ( NOT CMAKE_BUILD_TYPE OR "${CMAKE_BUILD_TYPE}" STREQUAL "None" )
++if ( NOT CMAKE_BUILD_TYPE OR "${CMAKE_BUILD_TYPE}" STREQUAL "None" OR "${CMAKE_BUILD_TYPE}" STREQUAL "Gentoo" )
+   set( ALL_CFLAGS "${CMAKE_C_FLAGS}" )
+   set( ALL_CXXFLAGS "${CMAKE_CXX_FLAGS}" )
+ elseif ( ${CMAKE_BUILD_TYPE} STREQUAL "Debug" )

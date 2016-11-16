@@ -36,12 +36,82 @@ CMAKE_BINARY="/global/opt/cmake/3.5.2/bin/cmake"
 CMAKE_MIN_VERSION="3.5"
 export CMAKE_BUILD_TYPE=""
 inherit ${INHERIT_VCS} eutils cmake-utils
+CMAKE_BUILD_TYPE=None
 
 src_prepare() {
 	echo Hello world1
+	#epatch "${FILESDIR}/${P}-cmake-build-type-gentoo.patch"
 	# patches here
 	#epatch "${FILESDIR}/${P}-some.patch"
-	${CMAKE_BINARY} -DCMAKE_INSTALL_PREFIX:PATH=${ED} $(cmake-utils_use mpi with-mpi) . || die "Configure failed"
+#	echo RUNNING ${CMAKE_BINARY} -DCMAKE_INSTALL_PREFIX:PATH=${ED} \
+#		 $(cmake-utils_use mpi with-mpi)\
+#		 $(cmake-utils_use openmp with-openmp)\
+#		 $(cmake-utils_use music with-music)\
+#		 $(cmake-utils_use gsl with-gsl)\
+#		 $(cmake-utils_use python with-python)\
+#		 -DCMAKE_C_COMPILER=$(/usr/bin/which gcc) -DCMAKE_CXX_COMPILER=$(/usr/bin/which g++) \
+#		 #-MPI_CXX_LIBRARIES MPI_CXX_INCLUDE_PATH
+#		 #-DMPI_C_INCLUDE=${MPI_ROOT}/include -DMPI_C_LIBRARIES=-lmpi \
+#		 #-DMPI_CXX_INCLUDE=${MPI_ROOT}/include -DMPI_CXX_LIBRARIES=-lmpicxx \
+#	# .
+#	echo I AM RUNNING IN $(pwd)
+#	env >ebuild.env
+#	${CMAKE_BINARY} -DCMAKE_INSTALL_PREFIX:PATH=${ED}\
+#		 $(cmake-utils_use mpi with-mpi)\
+#		 $(cmake-utils_use openmp with-openmp)\
+#		 $(cmake-utils_use music with-music)\
+#		 $(cmake-utils_use gsl with-gsl)\
+#		 $(cmake-utils_use python with-python)\
+#		 -DCMAKE_C_COMPILER=$(which gcc) -DCMAKE_CXX_COMPILER=$(which g++) \
+#		 -DCMAKE_BUILD_TYPE=None \
+#		 -DMPI_C_LIBRARIES=mpi -DMPI_C_INCLUDE_PATH=$MPI_ROOT/include \
+	#	 -DMPI_CXX_LIBRARIES=mpicxx -DMPI_CXX_INCLUDE_PATH=$MPI_ROOT/include \
+	#. || die "Configure failed"
+	# tmp
+		 #-DMPI_C_INCLUDE=${MPI_ROOT}/include -DMPI_C_LIBRARIES=-lmpi \
+		 #-DMPI_CXX_INCLUDE=${MPI_ROOT}/include -DMPI_CXX_LIBRARIES=-lmpicxx \
+	# SOLL:
+	# /global/opt/cmake/3.5.2/bin/cmake -DCMAKE_INSTALL_PREFIX:PATH=/var/tmp/portage/sci-misc/nest-9999/image/gpfs/homeb/pcp0/pcp0006/\
+	#	 -Dwith-mpi=ON
+	#	 -Dwith-openmp=ON
+	#	 -Dwith-gsl=ON
+	#	 -Dwith-python=OFF
+	#	 -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++
+	#	 -DCMAKE_C_COMPILER=/usr/bin/gcc
+	#	 -Dwith-music=ON
+	#	 -DCMAKE_CXX_COMPILER=/usr/bin/g++
+	#	 .
+	# IST:
+	# /global/opt/cmake/3.5.2/bin/cmake -DCMAKE_INSTALL_PREFIX:PATH=/var/tmp/portage/sci-misc/nest-9999/image/gpfs/homeb/pcp0/pcp0006/\
+	#	 -Dwith-mpi=ON
+	#	 -Dwith-openmp=ON
+	#	 -Dwith-music=ON
+	#	 -Dwith-gsl=ON
+	#	 -Dwith-python=OFF
+	#	 -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++
+	#	 -DMPI_C_INCLUDE=/opt/intel/impi/5.1.3.210/includer
+	#	 -DMPI_C_LIBRARIES=-lmpi
+	#	 -DMPI_CXX_INCLUDE=/opt/intel/impi/5.1.3.210/include
+	#	 -DMPI_CXX_LIBRARIES=-lmpicxx
+	#	 .
+}
+
+src_configure() {
+	# mycmakeargs is a magic name used by cmake-utils
+	# see https://devmanual.gentoo.org/eclass-reference/cmake-utils.eclass/index.html
+	local mycmakeargs=(
+ 		-DCMAKE_INSTALL_PREFIX:PATH=${ED}
+		$(cmake-utils_use mpi with-mpi)
+		$(cmake-utils_use openmp with-openmp)
+		$(cmake-utils_use music with-music)
+		$(cmake-utils_use gsl with-gsl)
+		$(cmake-utils_use python with-python)
+		-DMPI_C_LIBRARIES=mpi -DMPI_C_INCLUDE_PATH=$MPI_ROOT/include
+		-DMPI_CXX_LIBRARIES=mpicxx -DMPI_CXX_INCLUDE_PATH=$MPI_ROOT/include
+	)
+	#	-DCMAKE_C_COMPILER=$(which gcc) -DCMAKE_CXX_COMPILER=$(which g++)
+	#econf ${mycmakeargs}
+	cmake-utils_src_configure
 }
 
 #src_compile() {

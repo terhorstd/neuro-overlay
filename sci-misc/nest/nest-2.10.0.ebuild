@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}"
 inherit eutils
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-lddflags-in-autoconf"
+	#epatch "${FILESDIR}/${P}-lddflags-in-autoconf"
 	epatch "${FILESDIR}/${P}-relative_import.patch"
 }
 
