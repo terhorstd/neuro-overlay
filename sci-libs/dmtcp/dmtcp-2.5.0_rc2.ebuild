@@ -13,7 +13,7 @@ SRC_URI="https://github.com/dmtcp/dmtcp/archive/2.5.0-rc2.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~x86"
-IUSE="ownmpi"
+IUSE="ownmpi infiniband openmp gzip"
 
 DEPEND=" !ownmpi? ( sys-cluster/openmpi )"
 RDEPEND="${DEPEND}"
@@ -28,5 +28,16 @@ src_unpack() {
 }
 src_prepare() {
 	#epatch "${FILESDIR}/${P}-usleep.patch"
-	echo "foo"
+	echo "no patches"
+}
+
+src_configure() {
+        econf \
+                --enable-timing \
+                --enable-realtime-ckpt-signal \
+                --enable-debug \
+                --enable-fast-restart \
+                $(use_enable infiniband infiniband-support) \
+                $(use_enable openmp)
+        #        --bindir="${EPREFIX}"/bin \
 }
